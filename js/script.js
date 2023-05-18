@@ -36,6 +36,7 @@ createApp({
       axios.get(this.serverUrl)
       .then(result => {
         console.log(result.data)
+        this.tasks = result.data
       })
     },
 
