@@ -27,10 +27,20 @@ createApp({
       inputColor : 'task_bg1',
       errorMsg : '',
 
+      serverUrl: 'server.php'
     }
   },
 
   methods: {
+    readList(){
+      axios.get(this.serverUrl)
+      .then(result => {
+        console.log(result.data)
+      })
+    },
+
+
+
     pressEnter(){
       this.newTask = {text : '', done: false, bgColor : '', priority:''}     
       this.newTask.text = this.inputTsk;
@@ -75,6 +85,7 @@ createApp({
   },
 
   mounted(){
-    this.sortTasks()   
+    this.sortTasks() ;
+    this.readList();  
   }
 }).mount('#app')

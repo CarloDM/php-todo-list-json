@@ -16,11 +16,15 @@
   ];
 
 $json_string = json_encode($tasks);
+// file_put_contents('tasks.json', $json_string);
+$json_in = file_get_contents('tasks.json');
+$inDecod = json_decode($json_in);
+var_dump($inDecod);
 
-file_put_contents('tasks.json', $json_string);
 
-// header('Content-Type: application/json');
 
-// echo json_encode($arrayprova);
+header('Content-Type: application/json');
+
+echo json_encode($inDecod);
 
 ?>
