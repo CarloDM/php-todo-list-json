@@ -1,47 +1,15 @@
-<?php 
 
-$arrayprova = [
-  [
-    'nameawe' => 'mario',
-    'lastName' => 'pallon',
-  ],
-  [
-    'name' => 'perla',
-    'lastName' => 'pallon',
-  ]
-  ];
-
-  $tasks = [
-    ['text'  =>
-        'è possibile cambiare colore generale nella barra arcobaleno',
-        'done' => false, 'bgColor'  => 'task_bg1', 'priority' =>'3'],
-    ['text'  =>
-        'le task sono ordinate in base alla priorità',
-        'done' => false, 'bgColor'  => 'task_bg3', 'priority' =>'2'],
-    ['text'  =>
-        'è possibile variare colore e priorità per ogni task gia inserita',
-        'done' => false, 'bgColor'  => 'task_bg4', 'priority' =>'1'],
-    ['text'  =>
-        'l icona per cancellare compare solo se hai completato la task',
-        'done' => true, 'bgColor'  => 'task_bg2', 'priority' =>'0'],
-  ];
-
-$json_string = json_encode($tasks);
-
-file_put_contents('tasks.json', $json_string);
-
-// header('Content-Type: application/json');
-
-// echo json_encode($arrayprova);
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
   <link rel="stylesheet" href="css/style.css">
   <title>vue-todolist</title>
 </head>
