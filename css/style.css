@@ -1,0 +1,204 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: monospace;
+  font-size: 1rem;
+  overflow-x: hidden;
+
+}
+
+.debug{
+  background-color: rgba(255, 0, 0, 0.253);
+}
+
+.main_wrapper{
+  width: 100vw;
+  height: 100vh;
+  padding: 20px 0px;
+  background-color: rgb(204, 195, 195);
+}
+
+.container{
+  width: 95%;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  padding-bottom: 5px;
+  border-radius: 40px;
+  box-shadow: 0px 0px 20px white;
+  border: 2px solid white;
+  background-color: rgba(36, 38, 163, 0.267);
+  overflow: hidden;
+}
+
+.card_bg_colors {
+  display: flex;
+  height: 15px;
+  margin-bottom: 10px;
+}
+
+.clrPalette0{  background-color:  rgba(36, 38, 163, 0.267);}
+.clrPalette1{  background-color:  rgba(23, 133, 167, 0.267)}
+.clrPalette2{  background-color:  rgba(14, 107, 14, 0.267);}
+.clrPalette3{  background-color:  rgba(94, 100, 8, 0.267);}
+.clrPalette4{  background-color:  rgba(114, 57, 18, 0.267);}
+.clrPalette5{  background-color:  rgba(122, 13, 86, 0.267);}
+
+.bgColorBox{
+  width: 25%;
+  height: 100%;
+  cursor: pointer;
+}
+
+header {
+  text-align: center;
+  height: 118px;
+}
+
+header h1 {
+  margin: 0px 0px 10px 0px;
+}
+
+#userInput{
+  margin-bottom: 5px;
+}
+
+#inText {
+  width: 30%;
+  margin: 0px 5px;
+  background-color:  rgb(224, 224, 224);
+}
+
+#inPriority{
+  margin: 0px 5px;
+  background-color:  rgb(224, 224, 224);
+}
+
+#inColor{
+  background-color:  rgb(224, 224, 224);
+}
+
+.errorMsg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px;
+    height: 10px;
+    color: rgb(214, 0, 0);
+    padding: 10px 0px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.267);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% - 118px);
+  overflow: auto;
+}
+
+main ul {
+  width: 100%;
+}
+
+main ul li{
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  opacity: 0.9;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.308);
+}
+
+
+.task_bg1{ background-color: rgba(250, 254, 255, 0.705);}
+.task_bg2{ background-color: rgba(255, 159, 147, 0.705);}
+.task_bg3{ background-color: rgba(159, 255, 159, 0.705);}
+.task_bg4{ background-color: rgba(239, 255, 166, 0.705);}
+
+
+main ul li span.task_text {
+  color: rgba(24, 24, 27, 0.856);
+}
+
+main ul li span.cancel:hover {
+  color: red;
+}
+
+.task {
+  margin: 10px 20px;
+  border-radius: 10px;
+  padding: 5px 20px;
+}
+
+.task:hover {
+  border: 2px solid rgba(0, 0, 0, 0.459);
+  padding: 3px 18px;
+  opacity: 1;
+}
+
+.task.done{
+  box-shadow: 0px 0px 15px rgb(255, 255, 255);
+  opacity: 0.4;
+}
+
+main ul li.done span.task_text {
+  text-decoration: line-through;
+  color: rgb(92, 92, 92);
+}
+
+.text_container{
+  width: 70%;
+  padding: 15px 40px 5px 10px;
+  cursor: pointer;
+}
+
+.taskOptions{
+  display: flex;
+  justify-content:end;
+  align-items: start;
+  padding-left: 10px;
+  border-left: 2px solid rgba(0, 0, 0, 0.068);
+}
+
+.priority_container{
+  margin-right: 15px;
+  padding-top: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.bg_container{
+  padding-top: 23px;
+  margin-right: 10px;
+}
+
+.clrBoxContainer{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 10px;
+  width: 60px;
+  height: 60px;
+}
+
+.clrBox{
+  width: calc(25% - 2px);
+  height: calc(25% - 2px);
+  border-radius: 50%;
+  margin-left: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.507);
+  cursor: pointer;
+}
+
+.clrStandar {  background-color: rgba(255, 255, 255, 0.705);}
+.clrRed {      background-color: rgba(211, 52, 52, 0.705);  }
+.clrGreen {    background-color: rgba(52, 211, 60, 0.705);  }
+.clrYellow {   background-color: rgba(211, 200, 52, 0.705); }
+
+.cancel_container{
+  width: 5px;
+  cursor: pointer;
+}
