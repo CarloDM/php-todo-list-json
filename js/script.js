@@ -26,7 +26,7 @@ createApp({
       cardColor :'clrPalette0',
       inputColor : 'task_bg1',
       errorMsg : '',
-
+      prova : 'prova',
       serverUrl: 'server.php'
     }
   },
@@ -39,18 +39,42 @@ createApp({
         this.tasks = result.data
       })
     },
+    addTask(){
+      // // this.tasks.push(this.newTask);
+      // const data = {
+      //   toDo : this.prova,
+      // }
+      // axios.post(this.serverUrl, data, {
+      //   headers:{'Content-Type' : 'multipart/from-data'}
+      // }).then(result => {
+      //   // this.tasks = result.data;
+      //   console.log('ricevo dopo l aggiunta' ,this.tasks);
+      // })
 
-
+      const data = new FormData();
+      data.append('test', this.newTask.text);
+      data.append('done', false);
+      data.append('bgColor', this.newTask.bgColor);
+      data.append('priority', this.inputPriority);
+      // data.append('toDo', this.test2);
+      axios.post(this.serverUrl, data)
+      .then(result => {
+        this.tasks = result.data;
+        console.log('ricevo dopo l aggiunta' , result.data);
+      })
+    },
 
     pressEnter(){
       this.newTask = {text : '', done: false, bgColor : '', priority:''}     
       this.newTask.text = this.inputTsk;
       this.newTask.bgColor = this.inputColor;
       this.newTask.priority = this.inputPriority;
-      this.tasks.push(this.newTask)
-      console.log('press enter',parseInt(this.inputPriority),this.inputColor,this.newTask )
+      this.inputTsk ='';
+      console.log('press enter',parseInt(this.inputPriority),this.inputColor, this.newTask );
+      // this.tasks.push(this.newTask)
       // this.sortTasks();
-      this.inputTsk =''
+      // console.log(this.newTask);
+      this.addTask();
     },
 
     doneToggle(ind){
