@@ -4,20 +4,7 @@ createApp({
   data(){
     return {
 
-      tasks: [
-        // {text :
-        //     'è possibile cambiare colore generale nella barra arcobaleno',
-        //     done: false, bgColor : 'task_bg1', priority:'3'},
-        // {text :
-        //     'le task sono ordinate in base alla priorità',
-        //     done: false, bgColor : 'task_bg3', priority:'2'},
-        // {text :
-        //     'è possibile variare colore e priorità per ogni task gia inserita',
-        //     done: false, bgColor : 'task_bg4', priority:'1'},
-        // {text :
-        //     'l icona per cancellare compare solo se hai completato la task',
-        //     done: true, bgColor : 'task_bg2', priority:'0'},
-      ],
+      tasks: [],
 
       newTask : {text : '', done: false, bgColor : '', priority:''},
 
@@ -35,28 +22,16 @@ createApp({
     readList(){
       axios.get(this.serverUrl)
       .then(result => {
-        console.log(result.data)
-        this.tasks = result.data
+        console.log(result.data);
+        this.tasks = result.data;
       })
     },
     addTask(){
-      // // this.tasks.push(this.newTask);
-      // const data = {
-      //   toDo : this.prova,
-      // }
-      // axios.post(this.serverUrl, data, {
-      //   headers:{'Content-Type' : 'multipart/from-data'}
-      // }).then(result => {
-      //   // this.tasks = result.data;
-      //   console.log('ricevo dopo l aggiunta' ,this.tasks);
-      // })
-
       const data = new FormData();
       data.append('test', this.newTask.text);
       data.append('done', false);
       data.append('bgColor', this.newTask.bgColor);
       data.append('priority', this.inputPriority);
-      // data.append('toDo', this.test2);
       axios.post(this.serverUrl, data)
       .then(result => {
         this.tasks = result.data;
@@ -71,9 +46,6 @@ createApp({
       this.newTask.priority = this.inputPriority;
       this.inputTsk ='';
       console.log('press enter',parseInt(this.inputPriority),this.inputColor, this.newTask );
-      // this.tasks.push(this.newTask)
-      // this.sortTasks();
-      // console.log(this.newTask);
       this.addTask();
     },
 
@@ -86,6 +58,7 @@ createApp({
       if (this.tasks[ind].done){
         console.log(this.tasks[ind].done)
         this.tasks.splice(ind,1);
+        // serve una POST per cancellare by id ma l oggetto task ha bisogno dell attributo id
         this.errorMsg = ''
       }else {
         this.errorMsg = 'devi completare la task prima di poterla cancellare';

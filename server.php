@@ -20,7 +20,7 @@
 
 $tasks_json = file_get_contents('tasks.json');
 $tasks_decode = json_decode($tasks_json);
-// var_dump($inDecod);
+
 if(isset($_POST['test'])){
   $new = [
     'text'     => $_POST['test'],
@@ -32,14 +32,6 @@ if(isset($_POST['test'])){
   $tasks_decode[] = $new;
   newTask($tasks_decode);
 }
-// $tasks_decode = [
-//   ['text'  =>
-//       'è possibile cambiare colore generale nella barra arcobaleno',
-//       'done' => false, 'bgColor'  => 'task_bg1', 'priority' =>'3'],
-//   ['text'  =>
-//       'le task sono ordinate in base alla priorità',
-//       'done' => false, 'bgColor'  => 'task_bg3', 'priority' =>'2'],
-// ];
 
 function newTask($tasks_decode){
   file_put_contents('tasks.json', json_encode($tasks_decode));
